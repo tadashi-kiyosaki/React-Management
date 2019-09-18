@@ -41,7 +41,7 @@ class App extends Component {
       customers: '',
       completed: 0
     });
-    this.callApi()
+    this.callApi()  
       .then(res => this.setState({customers:res}))
       .catch(err => console.log(err));
   }
@@ -78,11 +78,13 @@ class App extends Component {
                 <TableCell>Birthday</TableCell>
                 <TableCell>Gender</TableCell>
                 <TableCell>Job</TableCell>
+                <TableCell>Setting</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {this.state.customers ? this.state.customers.map(c => { return (
                   <Customer
+                    stateRefresh={this.stateRefresh}
                     key={c.id}
                     id={c.id}
                     image={c.image}
